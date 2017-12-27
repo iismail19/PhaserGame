@@ -11,6 +11,8 @@ demo.state0.prototype = {
         // the 'listener' -> the args, are the arguemnts going into the listener
         // Event listeners are local to the state they are made in
         addChangeStateEventListeners();
+        
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
     },
     update: function(){}
@@ -18,7 +20,6 @@ demo.state0.prototype = {
 // the i is other information from Phaser
 // this information includes duration etc... passed in as 'i'
 function changeState(i, stateNum){
-    console.log(i);
     game.state.start('state' + stateNum);
 }
 
