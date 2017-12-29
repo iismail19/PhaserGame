@@ -1,10 +1,16 @@
 // name of game is demo
 var demo = {};
+var centerX = 1500 / 2;
+var centerY = 1000 / 2;
+var adam;
+var speed = 4;
 demo.state0 = function(){};
 demo.state0.prototype = {
-    preload: function(){},
+    preload: function(){
+        game.load.image('adam', 'assets/sprites/adam.png');
+    },
     create: function(){
-        game.stage.backgroundColor = '#4dff4d';
+        game.stage.backgroundColor = '#800020';
         console.log('state0');
         //add event listener
         // add(listener,listenerContext, priority, args)
@@ -13,9 +19,29 @@ demo.state0.prototype = {
         addChangeStateEventListeners();
         
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-
+        // to manipulate sprite set it to a variable
+        adam = game.add.sprite(centerX, centerY, 'adam');
+        // centers the character
+        //adam.anchor.x = 0.5;
+        //adam.anchor.y = 0.5;
+        // or do this in one line = 
+        adam.anchor.setTo(0.5, 0.5);
+        
     },
-    update: function(){}
+    update: function(){
+        if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
+            adam.x += speed;
+        }
+        else if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
+            adam.x -= speed;
+        }
+        if(game.input.keyboard.isDown(Phaser.Keyboard.UP)){
+            adam.y -= speed;
+        }
+        else if(game.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
+            adam.y += speed;
+        }
+    }
 };
 // the i is other information from Phaser
 // this information includes duration etc... passed in as 'i'
