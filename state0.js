@@ -73,6 +73,7 @@ demo.state0.prototype = {
 // the i is other information from Phaser
 // this information includes duration etc... passed in as 'i'
 function changeState(i, stateNum){
+    console.log('state' + stateNum);
     game.state.start('state' + stateNum);
 }
 
