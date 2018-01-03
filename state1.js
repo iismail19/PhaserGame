@@ -48,6 +48,8 @@ demo.state1.prototype = {
         game.physics.arcade.collide(adam, grass, function(){console.log('hitting grass');});
         // velocity makes character move
         // we need an else to make them stop
+        
+        // we used velocity becasue it lets us collide with map
         if(cursors.up.isDown){
             adam.body.velocity.y = -vel;
         }
